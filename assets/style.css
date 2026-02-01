@@ -1,0 +1,370 @@
+/* =======================================
+   Design Tokens (Variables)
+   ======================================= */
+:root {
+    --font-family: 'Poppins', sans-serif;
+
+    --color-bg: #f5f9ff;
+    --color-surface: #ffffff;
+    --color-text: #333;
+    --color-muted: #666;
+    --color-border: #e6e6e6;
+
+    --color-primary: #2c6fdb;
+    --color-primary-dark: #1e54b2;
+    --color-secondary: #fb923c;
+    --color-success: #16a34a;
+    --color-danger: #b00020;
+    --color-warning: #b58900;
+
+    --radius-sm: 5px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+    --transition: 0.3s ease;
+}
+
+/* =======================================
+   Global Reset & Base Styles
+   ======================================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 16px;
+}
+body {
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+    background-color: var(--color-bg);
+}
+
+/* Wrap all direct children of body in a centered "box" */
+body > * {
+    width: 100%;
+    max-width: 900px;
+    padding: 24px;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    box-sizing: border-box;
+}
+
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+    outline: none;
+}
+
+/* =======================================
+   Layout & Containers
+   ======================================= */
+.container {
+    max-width: 900px;       /* Or 1000px, depending on your preference */
+    margin: 40px auto;
+    padding: 24px;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+
+.section {
+    background: var(--color-surface);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 32px;
+}
+
+/* =======================================
+   Typography
+   ======================================= */
+h1, h2, h3 {
+    color: var(--color-primary);
+    margin-bottom: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+p {
+    color: var(--color-muted);
+    margin-bottom: 12px;
+}
+
+/* =======================================
+   Forms
+   ======================================= */
+form {
+    margin-bottom: 24px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 6px 0 16px 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(44, 111, 219, 0.2);
+}
+
+/* Buttons */
+button,
+.button {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color var(--transition), transform 0.2s ease;
+}
+
+button:hover,
+.button:hover {
+    background-color: var(--color-primary-dark);
+    transform: scale(1.02);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Secondary buttons */
+.button-secondary {
+    background-color: var(--color-secondary);
+}
+
+.button-secondary:hover {
+    background-color: var(--color-primary);
+}
+
+/* Filter Form */
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.filter-form input,
+.filter-form select {
+    flex: 1 1 180px;
+}
+
+.filter-form button {
+    flex-shrink: 0;
+}
+
+/* =======================================
+   Tables
+   ======================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 0.95rem;
+}
+
+table th, table td {
+    border: 1px solid var(--color-border);
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f0f4fa;
+    font-weight: 600;
+}
+
+table tr:hover {
+    background-color: #f9fcff;
+}
+
+/* Status Labels */
+.status-pending {
+    color: var(--color-warning);
+    font-weight: 600;
+}
+
+.status-approved {
+    color: var(--color-success);
+    font-weight: 600;
+}
+
+.status-rejected {
+    color: var(--color-danger);
+    font-weight: 600;
+}
+
+/* Actions */
+.actions a {
+    margin-right: 10px;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+/* =======================================
+   Stats Cards
+   ======================================= */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background: var(--color-surface);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border-left: 6px solid var(--color-border);
+    transition: transform var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+.stat-card h3 {
+    font-size: 1rem;
+    color: var(--color-muted);
+    margin-bottom: 6px;
+}
+
+.stat-card p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.stat-card.blue { border-color: var(--color-primary); }
+.stat-card.orange { border-color: var(--color-secondary); }
+.stat-card.green { border-color: var(--color-success); }
+.stat-card.gray { border-color: var(--color-border); }
+
+/* =======================================
+   Message Boxes
+   ======================================= */
+.message-box {
+    max-width: 500px;
+    padding: 20px;
+    border-left: 6px solid;
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    margin: 50px auto;
+}
+
+.message-box.success {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.message-box.error {
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+}
+
+.message-box p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 8px 16px;
+    background-color: var(--color-secondary);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition);
+}
+
+.back-btn:hover {
+    background-color: var(--color-primary);
+}
+
+/* =======================================
+   Accessibility Focus States
+   ======================================= */
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* =======================================
+   Responsive Utilities
+   ======================================= */
+@media (max-width: 1024px) {
+    .filter-form {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    table th, table td {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    button, .button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .section {
+        padding: 16px;
+    }
+}

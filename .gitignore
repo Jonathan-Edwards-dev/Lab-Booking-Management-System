@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+instance/
+*.db
+node_modules/
+venv/
+.env.local
